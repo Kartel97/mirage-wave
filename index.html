@@ -106,6 +106,21 @@ summary::after{content:"+";font-size:28px;line-height:.8;color:var(--cyan);trans
 details[open] summary::after{transform:rotate(45deg)}
 details p{color:var(--muted);padding:0 0 24px;max-width:620px}
 
+
+/* DROP 02 */
+.d2{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.d2 .card{position:relative;background:radial-gradient(circle at 50% 40%,#173a45,#0b1a22 75%);border:1px solid var(--line);aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;transition:border-color .3s}
+.d2 .card:hover{border-color:rgba(69,214,217,.5)}
+.d2 .card img{position:absolute;inset:34px 26px 92px;width:calc(100% - 52px);height:calc(100% - 126px);object-fit:contain;filter:drop-shadow(0 18px 34px rgba(0,0,0,.5));transition:transform .8s var(--ease)}
+.d2 .card:hover img{transform:scale(1.06)}
+.d2 .card .lbl{position:relative;padding:16px 18px;background:linear-gradient(to top,rgba(7,15,20,.95),transparent)}
+.d2 .card h3{font-family:Anton,sans-serif;font-weight:400;font-size:26px;text-transform:uppercase;line-height:1}
+.d2 .card span{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.d2 .card.wide{grid-column:span 2;aspect-ratio:auto}
+.d2 .soon{position:absolute;top:14px;right:14px;z-index:2;background:var(--gold);color:var(--ink);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px}
+@media (max-width:960px){.d2{grid-template-columns:repeat(2,1fr)}.d2 .card.wide{grid-column:span 2;aspect-ratio:8/5}}
+@media (max-width:520px){.d2{gap:10px}.d2 .card h3{font-size:20px}.d2 .card img{inset:26px 14px 80px;width:calc(100% - 28px);height:calc(100% - 106px)}}
+
 @media (max-width:960px){
   .tile{grid-column:span 12!important;min-height:440px}
   .manifest .grid,.noel,.faq{grid-template-columns:1fr}
@@ -139,6 +154,7 @@ details p{color:var(--muted);padding:0 0 24px;max-width:620px}
     <a class="logo" href="index.html"><img src="img/mw-logo.webp" alt="">Mirage Wave</a>
     <nav class="menu">
       <a href="#drop">Drop 01</a>
+      <a href="#drop2">Drop 02</a>
       <a href="#noel">Noël</a>
       <a href="#univers">Univers</a>
       <a href="#faq">FAQ</a>
@@ -212,6 +228,25 @@ details p{color:var(--muted);padding:0 0 24px;max-width:620px}
         <div class="tile-bot"><div><h3>Édition Noël</h3><div class="sub">Jusqu'au 31 décembre seulement</div></div>
           <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- DROP 02 -->
+<section class="sec" id="drop2" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="eyebrow">Nouveau</span><h2 class="display" style="margin-top:14px">Drop 02<br>Tidal City</h2></div>
+      <p>Sept nouveaux visuels entre Tokyo et la côte : vagues japonaises, soleil rétro, chrome Y2K, palmiers de nuit et esprit varsity.</p>
+    </div>
+    <div class="d2">
+      <a class="card rv" href="#drop2"><b class="soon">Bientôt</b><img src="img/d2-seigaiha.webp" alt="Visuel Seigaiha" loading="lazy"><div class="lbl"><h3>Seigaiha</h3><span>Tokyo · Paris · Océan</span></div></a>
+      <a class="card rv" href="boutique.html"><img src="img/d2-sunset.webp" alt="Visuel Golden Hour" loading="lazy"><div class="lbl"><h3>Golden Hour</h3><span>Rétro sunset</span></div></a>
+      <a class="card rv wide" href="boutique.html"><img src="img/d2-chrome.webp" alt="Visuel Chrome Y2K" loading="lazy"><div class="lbl"><h3>Chrome Y2K</h3><span>Y2K Edition</span></div></a>
+      <a class="card rv" href="boutique.html"><img src="img/d2-palm-city.webp" alt="Visuel Palm City" loading="lazy"><div class="lbl"><h3>Palm City</h3><span>Night shift</span></div></a>
+      <a class="card rv" href="boutique.html"><img src="img/d2-wave-riders.webp" alt="Visuel Wave Riders 97" loading="lazy"><div class="lbl"><h3>Wave Riders 97</h3><span>Athletic Dept.</span></div></a>
+      <a class="card rv" href="#drop2"><b class="soon">Bientôt</b><img src="img/d2-surf-club.webp" alt="Visuel Surf Club" loading="lazy"><div class="lbl"><h3>Surf Club</h3><span>Ocean Division</span></div></a>
+      <a class="card rv" href="#drop2"><b class="soon">Bientôt</b><img src="img/d2-manifeste.webp" alt="Visuel Manifeste N°1" loading="lazy"><div class="lbl"><h3>Manifeste N°1</h3><span>Impression dos</span></div></a>
     </div>
   </div>
 </section>
@@ -316,7 +351,7 @@ const onScroll = () => nav.classList.toggle("solid", scrollY > 40);
 addEventListener("scroll", onScroll, {passive:true}); onScroll();
 
 // bandeau défilant
-const mots = ["Drop 01 Origins","Original Streetwear","Édition Noël","Imprimé à la demande","Né de la vague","Fait pour la rue"];
+const mots = ["Drop 02 Tidal City","Drop 01 Origins","Original Streetwear","Édition Noël","Imprimé à la demande","Né de la vague","Fait pour la rue"];
 const html = mots.map((m,i)=>`<span class="${i%2?"alt":""}">${m}</span>`).join("");
 document.getElementById("marquee").innerHTML = html + html;
 
