@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop — Mirage Wave</title>
+<meta name="description" content="La boutique Mirage Wave : t-shirts et sweats à capuche streetwear, imprimés à la commande.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.shop-hero{padding:150px 0 50px;background:radial-gradient(ellipse 50% 80% at 85% 0%,rgba(31,138,138,.35),transparent 70%)}
+.shop-hero h1{font-size:clamp(64px,11vw,170px)}
+.shop-hero p{color:var(--muted);max-width:520px;margin-top:20px;font-size:17px}
+.perks{display:flex;gap:26px;flex-wrap:wrap;margin-top:30px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.perks span{display:flex;align-items:center;gap:8px}
+.perks span::before{content:"";width:7px;height:7px;background:var(--cyan);transform:rotate(45deg)}
+
+/* La boutique Spreadshop est intégrée ici : fond clair pour que les produits ressortent */
+.shop-frame{background:#f6f3ee;color:#111;min-height:70vh;font-family:Inter,system-ui,sans-serif}
+#shop{max-width:1320px;margin:0 auto;padding:30px 16px 60px;font-family:Inter,system-ui,sans-serif}
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:50vh;color:#555;text-align:center}
+.spin{width:38px;height:38px;border:3px solid #ddd;border-top-color:var(--teal);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.soon{display:none;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:90px 20px;color:#222}
+.soon h2{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(40px,6vw,72px);line-height:.9}
+.soon p{color:#555;max-width:460px}
+.soon img{width:180px}
+.soon .cta{background:#0a1820;color:#fff}
+</style>
+</head>
+<body>
+
+<header class="nav solid" id="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="img/mw-logo.webp" alt="">Mirage Wave</a>
+    <nav class="menu">
+      <a href="index.html#drop">Drop 01</a>
+      <a href="index.html#noel">Noël</a>
+      <a href="index.html#univers">Univers</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a class="cta cta-light" href="index.html">Accueil</a>
+  </div>
+</header>
+
+<section class="shop-hero">
+  <div class="wrap">
+    <span class="eyebrow">Boutique officielle</span>
+    <h1 class="display" style="margin-top:16px">Le shop</h1>
+    <p>Choisis ton visuel, ta pièce, ta couleur et ta taille. Paiement sécurisé, impression à la commande, livraison suivie.</p>
+    <div class="perks"><span>Paiement sécurisé</span><span>Livraison suivie</span><span>14 jours pour changer d'avis</span></div>
+    <div class="pay" style="border:0;padding-top:0;margin-top:22px"><div data-paiement></div></div>
+  </div>
+</section>
+
+<main class="shop-frame">
+  <div id="shop"><div class="loading"><div class="spin"></div>Chargement de la boutique…</div></div>
+  <div class="soon" id="soon">
+    <img src="img/masque.webp" alt="">
+    <h2>Ouverture imminente</h2>
+    <p>La boutique Mirage Wave ouvre ses portes très bientôt. Reviens dans quelques jours pour shopper le Drop 01.</p>
+    <a class="cta" href="index.html">Retour à l'accueil</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="pay" style="margin-top:0;border:0;padding-top:0"><span>Paiement sécurisé</span><div data-paiement></div></div>
+    <div class="fbig" aria-hidden="true">Mirage Wave</div>
+    <div class="legal"><span>© <span id="y"></span> Mirage Wave</span><span>Vente, paiement et livraison assurés par Spreadshop</span></div>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="paiement.js"></script>
+<script src="neige.js"></script>
+<script>
+var spread_shop_config = {
+  shopName: MW.shopName,
+  prefix: MW.shopUrl,
+  baseId: "shop",
+  locale: "fr_FR",
+};
+document.getElementById("y").textContent = new Date().getFullYear();
+
+// Si la boutique ne se charge pas (pas encore activée), on affiche « Ouverture imminente »
+function boutiqueVide(){
+  const shop = document.getElementById("shop");
+  return !!shop.querySelector(".loading") || shop.innerText.trim().length < 40;
+}
+function montrerBientot(){
+  document.getElementById("shop").style.display = "none";
+  document.getElementById("soon").style.display = "flex";
+}
+const s = document.createElement("script");
+s.src = MW.shopScript;
+s.onerror = montrerBientot;
+document.body.appendChild(s);
+setTimeout(() => { if(boutiqueVide()) montrerBientot(); }, 9000);
+</script>
+</body>
+</html>

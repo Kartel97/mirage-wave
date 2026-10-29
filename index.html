@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mirage Wave — Original Streetwear</title>
+<meta name="description" content="Mirage Wave : streetwear original imprimé à la commande. T-shirts et sweats à capuche. Né de la vague, fait pour la rue.">
+<meta property="og:title" content="Mirage Wave — Original Streetwear">
+<meta property="og:description" content="Né de la vague. Fait pour la rue. Drop 01 disponible.">
+<meta property="og:image" content="img/masque.webp">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;padding:110px 0 36px;
+  background:radial-gradient(ellipse 60% 55% at 50% 45%,rgba(31,138,138,.42),transparent 70%),radial-gradient(ellipse 40% 30% at 80% 90%,rgba(201,164,92,.12),transparent 70%),var(--ink)}
+.hero-word{position:absolute;left:0;right:0;text-align:center;font-family:Anton,sans-serif;text-transform:uppercase;line-height:.8;font-size:clamp(110px,24vw,380px);white-space:nowrap;pointer-events:none;user-select:none}
+.hero-word.top{top:9vh;color:rgba(242,233,216,.06)}
+.hero-word.bot{bottom:6vh;color:transparent;-webkit-text-stroke:1.5px rgba(242,233,216,.16)}
+.hero-art{position:absolute;left:50%;top:43%;width:min(500px,74vw,56vh);transform:translate(-50%,-50%);z-index:2}
+.hero-art img{width:100%;filter:drop-shadow(0 40px 80px rgba(0,0,0,.65));animation:bob 7s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-14px) rotate(-.6deg)}}
+.hero-foot{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.hero-foot h1{font-size:clamp(40px,5vw,72px);max-width:560px;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+.hero-foot h1 em{font-style:normal;color:var(--cyan)}
+.hero-side{display:flex;flex-direction:column;align-items:flex-end;gap:18px;text-align:right}
+.hero-side p{color:var(--muted);max-width:300px;font-size:15px}
+.live{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.live i{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+
+/* DROP */
+.sec{padding:120px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(56px,8vw,128px)}
+.sec-head p{color:var(--muted);max-width:360px}
+.drop{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.tile{position:relative;overflow:hidden;background:var(--ink-2);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;min-height:520px;isolation:isolate}
+.tile:nth-child(1){grid-column:span 7}
+.tile:nth-child(2){grid-column:span 5}
+.tile:nth-child(3){grid-column:span 5}
+.tile:nth-child(4){grid-column:span 7}
+.tile:nth-child(5),.tile:nth-child(6){grid-column:span 6}
+.tile::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--bg);transition:transform 1s var(--ease)}
+.tile .art{position:absolute;inset:60px 40px 110px;display:flex;align-items:center;justify-content:center;z-index:-1}
+.tile .art img{max-height:100%;max-width:100%;object-fit:contain;filter:drop-shadow(0 26px 50px rgba(0,0,0,.5));transition:transform .9s var(--ease)}
+.tile:hover .art img{transform:scale(1.06) rotate(-1.5deg)}
+.tile:hover::before{transform:scale(1.04)}
+.tile-top{display:flex;justify-content:space-between;padding:22px 24px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.tile-top span:last-child{color:var(--gold)}
+.tile-bot{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:24px;background:linear-gradient(to top,rgba(7,15,20,.92),transparent)}
+.tile h3{font-family:Anton,sans-serif;font-weight:400;font-size:clamp(34px,3.6vw,52px);text-transform:uppercase;line-height:.9}
+.tile .sub{color:var(--muted);font-size:14px;margin-top:6px}
+.tile .go{flex:none;width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(242,233,216,.35);display:flex;align-items:center;justify-content:center;transition:.3s var(--ease)}
+.tile:hover .go{background:var(--cream);color:var(--ink);border-color:var(--cream);transform:rotate(-45deg)}
+.tile .go svg{width:20px;height:20px}
+
+/* MANIFESTE */
+.manifest{position:relative;padding:150px 0;overflow:hidden;border-block:1px solid var(--line);background:linear-gradient(180deg,var(--ink),var(--ink-2))}
+.manifest .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+.manifest h2{font-size:clamp(64px,10vw,160px)}
+.manifest h2 span{display:block}
+.manifest h2 .o{color:transparent;-webkit-text-stroke:1.5px var(--cream)}
+.manifest h2 .c{color:var(--cyan)}
+.manifest p{color:var(--muted);font-size:18px;margin-top:22px;max-width:420px}
+.manifest img{width:100%;max-width:470px;margin-left:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6))}
+
+/* NOEL */
+.noel{position:relative;overflow:hidden;border:1px solid rgba(201,164,92,.35);background:radial-gradient(ellipse at 78% 50%,rgba(201,164,92,.22),transparent 60%),linear-gradient(120deg,#0b1d26,#10303a);display:grid;grid-template-columns:1.1fr .9fr;align-items:center}
+.noel .txt{padding:64px}
+.noel h2{font-size:clamp(56px,7vw,110px);margin:18px 0 22px}
+.noel h2 span{color:var(--gold)}
+.noel p{color:var(--muted);max-width:430px;margin-bottom:30px}
+.count{display:flex;gap:12px;margin-bottom:34px}
+.count div{min-width:84px;padding:14px 10px;text-align:center;background:rgba(0,0,0,.28);border:1px solid rgba(201,164,92,.3)}
+.count b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:40px;line-height:1}
+.count small{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.noel img{width:88%;max-width:460px;margin:40px auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,.5));animation:bob 8s ease-in-out infinite}
+
+/* PROCESS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.step{padding:34px 26px 10px 0;border-right:1px solid var(--line);margin-right:26px}
+.step:last-child{border-right:0}
+.step b{font-family:Anton,sans-serif;font-weight:400;font-size:15px;color:var(--cyan);letter-spacing:.1em}
+.step h3{font-size:20px;margin:16px 0 8px}
+.step p{color:var(--muted);font-size:15px}
+
+/* COMMUNAUTE */
+.join{text-align:center;padding:140px 0;position:relative;overflow:hidden}
+.join h2{font-size:clamp(70px,13vw,210px)}
+.join h2 .o{color:transparent;-webkit-text-stroke:1.5px var(--cream)}
+.join p{color:var(--muted);max-width:520px;margin:24px auto 34px;font-size:18px}
+.join .row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.tagline{display:inline-block;margin-top:30px;font-weight:800;letter-spacing:.2em;color:var(--gold)}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+.faq h2{font-size:clamp(56px,7vw,100px)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font-size:19px;font-weight:700}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:28px;line-height:.8;color:var(--cyan);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding:0 0 24px;max-width:620px}
+
+@media (max-width:960px){
+  .tile{grid-column:span 12!important;min-height:440px}
+  .manifest .grid,.noel,.faq{grid-template-columns:1fr}
+  .manifest img{margin:0 auto}
+  .steps{grid-template-columns:1fr 1fr}
+  .step{border-right:0;margin-right:0;padding-right:10px}
+}
+@media (max-width:640px){
+  .hero{padding-bottom:26px}
+  .hero-art{top:42%;width:86vw}
+  .hero-word.top{top:12vh}
+  .hero-word.bot{bottom:30vh}
+  .hero-foot{flex-direction:column;align-items:flex-start}
+  .hero-side{align-items:flex-start;text-align:left}
+  .sec{padding:80px 0}
+  .tile{min-height:400px}
+  .tile .art{inset:54px 20px 104px}
+  .noel .txt{padding:36px 22px 0}
+  .count div{min-width:0;flex:1}
+  .count b{font-size:30px}
+  .steps{grid-template-columns:1fr}
+  .manifest{padding:90px 0}
+  .join{padding:90px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="img/mw-logo.webp" alt="">Mirage Wave</a>
+    <nav class="menu">
+      <a href="#drop">Drop 01</a>
+      <a href="#noel">Noël</a>
+      <a href="#univers">Univers</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="cta cta-light" href="boutique.html">Shop
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-word top" aria-hidden="true">Mirage</div>
+  <div class="hero-word bot" aria-hidden="true">Wave</div>
+  <div class="hero-art"><img src="img/masque.webp" alt="Mirage Wave : personnage à capuche et masque au milieu des vagues"></div>
+  <div class="wrap hero-foot">
+    <div>
+      <span class="live"><i></i>Drop 01 disponible</span>
+      <h1 class="display" style="margin-top:16px">Né de la vague.<br><em>Fait pour la rue.</em></h1>
+    </div>
+    <div class="hero-side">
+      <p>Streetwear original. Chaque pièce est imprimée à la commande, rien que pour toi.</p>
+      <a class="cta cta-light" href="boutique.html">Shopper le drop
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
+
+<!-- DROP -->
+<section class="sec" id="drop">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="eyebrow">Collection</span><h2 class="display" style="margin-top:14px">Drop 01<br>Origins</h2></div>
+      <p>Six visuels, six façons de porter la vague. Disponibles en t-shirt et en sweat à capuche, dans plusieurs couleurs.</p>
+    </div>
+    <div class="drop">
+      <a class="tile rv" href="boutique.html" style="--bg:radial-gradient(circle at 50% 42%,#1d5560,#0b1a22 70%)">
+        <div class="tile-top"><span>01 / 06</span><span>Signature</span></div>
+        <div class="art"><img src="img/masque.webp" alt="Visuel Masque" loading="lazy"></div>
+        <div class="tile-bot"><div><h3>Masque</h3><div class="sub">T-shirt · Sweat à capuche</div></div>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="tile rv" href="boutique.html" style="--bg:radial-gradient(circle at 50% 42%,#2a4a4c,#0d1b20 72%)">
+        <div class="tile-top"><span>02 / 06</span><span>Origin</span></div>
+        <div class="art"><img src="img/mw-logo.webp" alt="Visuel MW Origin" loading="lazy"></div>
+        <div class="tile-bot"><div><h3>MW Origin</h3><div class="sub">T-shirt · Sweat à capuche</div></div>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="tile rv" href="boutique.html" style="--bg:radial-gradient(circle at 50% 42%,#4d3d1c,#110f0a 72%)">
+        <div class="tile-top"><span>03 / 06</span><span>Gold</span></div>
+        <div class="art"><img src="img/colibri.webp" alt="Visuel Colibri Or" loading="lazy"></div>
+        <div class="tile-bot"><div><h3>Colibri Or</h3><div class="sub">T-shirt · Sweat à capuche</div></div>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="tile rv" href="boutique.html" style="--bg:radial-gradient(circle at 50% 45%,#24507a,#0a1622 72%)">
+        <div class="tile-top"><span>04 / 06</span><span>Brodé</span></div>
+        <div class="art"><img src="img/brode.webp" alt="Visuel MW Brodé" loading="lazy"></div>
+        <div class="tile-bot"><div><h3>MW Brodé</h3><div class="sub">T-shirt · Sweat à capuche</div></div>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="tile rv" href="boutique.html" style="--bg:linear-gradient(160deg,#0f2733,#081218)">
+        <div class="tile-top"><span>05 / 06</span><span>Varsity</span></div>
+        <div class="art"><img src="img/street.webp" alt="Visuel Street Division" loading="lazy"></div>
+        <div class="tile-bot"><div><h3>Street Division</h3><div class="sub">T-shirt · Sweat à capuche</div></div>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="tile rv" href="#noel" style="--bg:radial-gradient(circle at 50% 42%,#4a3d22,#10181a 72%)">
+        <div class="tile-top"><span>06 / 06</span><span>Série limitée</span></div>
+        <div class="art"><img src="img/noel.webp" alt="Visuel Édition Noël" loading="lazy"></div>
+        <div class="tile-bot"><div><h3>Édition Noël</h3><div class="sub">Jusqu'au 31 décembre seulement</div></div>
+          <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTE -->
+<section class="manifest" id="univers">
+  <div class="wrap grid">
+    <div class="rv">
+      <span class="eyebrow">L'univers</span>
+      <h2 class="display" style="margin-top:18px"><span>La ville.</span><span class="o">L'océan.</span><span class="c">La vague.</span></h2>
+      <p>Mirage Wave, c'est des tours, du béton, et une vague qui emporte tout sur son passage. Chaque visuel est pensé comme un blason, pour ceux qui avancent à leur rythme et portent leur style comme une signature.</p>
+    </div>
+    <img class="rv" src="img/mw-logo.webp" alt="Blason MW Mirage Wave" loading="lazy">
+  </div>
+</section>
+
+<!-- NOEL -->
+<section class="sec" id="noel">
+  <div class="wrap">
+    <div class="noel rv">
+      <div class="txt">
+        <span class="eyebrow">Série limitée</span>
+        <h2 class="display">Édition<br><span>Noël</span></h2>
+        <p>Houx, boules dorées et glace : la vague passe en mode hiver. L'idée cadeau qui sort du lot, disponible pour une durée limitée.</p>
+        <div class="count" id="count">
+          <div><b data-u="j">00</b><small>Jours</small></div>
+          <div><b data-u="h">00</b><small>Heures</small></div>
+          <div><b data-u="m">00</b><small>Min</small></div>
+          <div><b data-u="s">00</b><small>Sec</small></div>
+        </div>
+        <a class="cta cta-light" href="boutique.html">Je la veux
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <img src="img/noel.webp" alt="Visuel Mirage Wave édition Noël" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv"><div><span class="eyebrow">Fabrication</span><h2 class="display" style="margin-top:14px">Zéro stock.<br>Zéro gâchis.</h2></div>
+      <p>On ne fabrique que ce qui est commandé. Ta pièce est imprimée pour toi, puis expédiée chez toi.</p></div>
+    <div class="steps rv">
+      <div class="step"><b>01</b><h3>Tu commandes</h3><p>Visuel, pièce, couleur, taille. Paiement sécurisé.</p></div>
+      <div class="step"><b>02</b><h3>On imprime</h3><p>Ta pièce est imprimée à la demande, rien que pour toi.</p></div>
+      <div class="step"><b>03</b><h3>On expédie</h3><p>Elle part chez toi avec un numéro de suivi.</p></div>
+      <div class="step"><b>04</b><h3>14 jours</h3><p>Pour changer d'avis, comme le prévoit la loi.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNAUTE -->
+<section class="join">
+  <div class="wrap rv">
+    <span class="eyebrow">Communauté</span>
+    <h2 class="display" style="margin-top:18px">Rejoins<br><span class="o">la vague</span></h2>
+    <p>Poste ta tenue avec #MirageWave : les meilleures photos seront partagées sur nos réseaux.</p>
+    <div class="row" id="socials">
+      <a class="cta cta-light" href="boutique.html">Shopper le drop</a>
+    </div>
+    <span class="tagline">#MIRAGEWAVE</span>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="padding-top:40px">
+  <div class="wrap faq">
+    <div class="rv"><span class="eyebrow">Infos</span><h2 class="display" style="margin-top:14px">Questions<br>fréquentes</h2></div>
+    <div class="rv">
+      <details><summary>Quel est le délai de livraison ?</summary><p>Ta pièce est imprimée à la commande, puis expédiée avec suivi. Le délai exact et les frais de port s'affichent au moment de payer, selon ton adresse.</p></details>
+      <details><summary>Comment choisir ma taille ?</summary><p>Chaque produit de la boutique a son guide des tailles avec les mesures en centimètres. Pour un style oversize, prends une taille au-dessus.</p></details>
+      <details><summary>Je peux retourner ma commande ?</summary><p>Oui, tu as 14 jours après réception pour te rétracter. Une pièce abîmée ou mal imprimée est remplacée gratuitement.</p></details>
+      <details><summary>Comment je paie ?</summary><p>Le paiement se fait sur notre boutique sécurisée, gérée par Spreadshop (groupe Spreadshirt) : carte bancaire, PayPal et autres moyens selon ton pays.</p></details>
+      <details><summary>Comment entretenir mon vêtement ?</summary><p>Lave-le à l'envers à 30 °C maximum, évite le sèche-linge, et ne repasse jamais directement sur le visuel.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a class="logo" href="index.html"><img src="img/mw-logo.webp" alt="">Mirage Wave</a>
+        <p style="color:var(--muted);margin-top:16px;max-width:320px;font-size:14px">Original streetwear, imprimé à la demande. Né de la vague, fait pour la rue.</p></div>
+      <div><h4>Shop</h4><ul><li><a href="boutique.html">Toute la boutique</a></li><li><a href="#drop">Drop 01</a></li><li><a href="#noel">Édition Noël</a></li></ul></div>
+      <div><h4>Aide</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="boutique.html">Livraison & retours</a></li></ul></div>
+      <div><h4>Suivre</h4><ul id="fsocial"><li style="color:var(--muted)">Bientôt</li></ul></div>
+    </div>
+    <div class="pay"><span>Paiement sécurisé</span><div data-paiement></div></div>
+    <div class="fbig" aria-hidden="true">Mirage Wave</div>
+    <div class="legal"><span>© <span id="y"></span> Mirage Wave</span><span>Vente, paiement et livraison assurés par Spreadshop</span></div>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="paiement.js"></script>
+<script src="neige.js"></script>
+<script>
+// nav qui devient opaque au défilement
+const nav = document.getElementById("nav");
+const onScroll = () => nav.classList.toggle("solid", scrollY > 40);
+addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+// bandeau défilant
+const mots = ["Drop 01 Origins","Original Streetwear","Édition Noël","Imprimé à la demande","Né de la vague","Fait pour la rue"];
+const html = mots.map((m,i)=>`<span class="${i%2?"alt":""}">${m}</span>`).join("");
+document.getElementById("marquee").innerHTML = html + html;
+
+// apparitions au défilement
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+
+// compte à rebours Noël
+const fin = new Date(MW.finNoel).getTime();
+const cells = {}; document.querySelectorAll("#count b").forEach(b => cells[b.dataset.u] = b);
+function tick(){
+  let d = Math.max(0, fin - Date.now()) / 1000;
+  const v = {j:Math.floor(d/86400), h:Math.floor(d%86400/3600), m:Math.floor(d%3600/60), s:Math.floor(d%60)};
+  for(const k in v) cells[k].textContent = String(v[k]).padStart(2,"0");
+}
+tick(); setInterval(tick, 1000);
+
+// réseaux sociaux (affichés seulement s'ils sont renseignés)
+const reseaux = [["Instagram",MW.instagram],["TikTok",MW.tiktok]].filter(r => r[1]);
+if(reseaux.length){
+  document.getElementById("fsocial").innerHTML = reseaux.map(([n,u]) => `<li><a href="${u}" target="_blank" rel="noopener">${n}</a></li>`).join("");
+  document.getElementById("socials").insertAdjacentHTML("beforeend", reseaux.map(([n,u]) => `<a class="cta cta-line" href="${u}" target="_blank" rel="noopener">${n}</a>`).join(""));
+}
+document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
