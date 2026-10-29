@@ -89,7 +89,8 @@ document.getElementById("y").textContent = new Date().getFullYear();
 // Si la boutique ne se charge pas (pas encore activée), on affiche « Ouverture imminente »
 function boutiqueVide(){
   const shop = document.getElementById("shop");
-  return !!shop.querySelector(".loading") || shop.innerText.trim().length < 40;
+  // la boutique remplace le message de chargement (souvent par un iframe)
+  return !shop.querySelector("iframe") && !!shop.querySelector(".loading");
 }
 function montrerBientot(){
   document.getElementById("shop").style.display = "none";
