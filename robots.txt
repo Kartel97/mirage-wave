@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kartel97.github.io/mirage-wave/sitemap.xml
