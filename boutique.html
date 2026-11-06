@@ -43,6 +43,7 @@
     <a class="logo" href="index.html"><img src="img/mw-logo.webp" alt="">Mirage Wave</a>
     <nav class="menu">
       <a href="index.html#drop">Drop 01</a>
+      <a href="index.html#drop2">Drop 02</a>
       <a href="index.html#noel">Noël</a>
       <a href="index.html#univers">Univers</a>
       <a href="index.html#faq">FAQ</a>
@@ -65,9 +66,9 @@
   <div id="shop"><div class="loading"><div class="spin"></div>Chargement de la boutique…</div></div>
   <div class="soon" id="soon">
     <img src="img/masque.webp" alt="">
-    <h2>Ouverture imminente</h2>
-    <p>La boutique Mirage Wave ouvre ses portes très bientôt. Reviens dans quelques jours pour shopper le Drop 01.</p>
-    <a class="cta" href="index.html">Retour à l'accueil</a>
+    <h2>Le shop est ouvert</h2>
+    <p>Il ne s'affiche pas sur cette page ? Retrouve tous les produits directement sur la boutique officielle.</p>
+    <a class="cta" id="lien-shop" href="https://miragewave.myspreadshop.fr" target="_blank" rel="noopener">Ouvrir la boutique →</a>
   </div>
 </main>
 
@@ -91,21 +92,31 @@ var spread_shop_config = {
 };
 document.getElementById("y").textContent = new Date().getFullYear();
 
-// Si la boutique ne se charge pas (pas encore activée), on affiche « Ouverture imminente »
+document.getElementById("lien-shop").href = MW.shopUrl;
+
+// Si la boutique ne se charge pas ici, on propose le lien direct vers Spreadshop
+const zoneShop = document.getElementById("shop");
+const secours = document.getElementById("soon");
 function boutiqueVide(){
-  const shop = document.getElementById("shop");
   // la boutique remplace le message de chargement (souvent par un iframe)
-  return !shop.querySelector("iframe") && !!shop.querySelector(".loading");
+  return !zoneShop.querySelector("iframe") && !!zoneShop.querySelector(".loading");
 }
-function montrerBientot(){
-  document.getElementById("shop").style.display = "none";
-  document.getElementById("soon").style.display = "flex";
+function montrerSecours(){
+  zoneShop.style.display = "none";
+  secours.style.display = "flex";
 }
+// chargement lent : si la boutique finit par arriver, elle reprend sa place
+new MutationObserver(() => {
+  if(!boutiqueVide()){
+    secours.style.display = "none";
+    zoneShop.style.display = "";
+  }
+}).observe(zoneShop, {childList:true, subtree:true});
 const s = document.createElement("script");
 s.src = MW.shopScript;
-s.onerror = montrerBientot;
+s.onerror = montrerSecours;
 document.body.appendChild(s);
-setTimeout(() => { if(boutiqueVide()) montrerBientot(); }, 9000);
+setTimeout(() => { if(boutiqueVide()) montrerSecours(); }, 9000);
 </script>
 </body>
 </html>
